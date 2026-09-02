@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { RecipeCard } from "@/components/recipes/recipe-card";
 import { recipes } from "@/lib/recipes";
+import { getTagsForRecipe } from "@/lib/tags";
 
 export default function HomePage() {
   const publicRecipes = recipes.filter(
@@ -61,7 +62,11 @@ export default function HomePage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {publicRecipes.map((recipe) => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                tags={getTagsForRecipe(recipe.id)}
+              />
             ))}
           </div>
         </section>

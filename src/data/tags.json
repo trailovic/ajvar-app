@@ -1,0 +1,44 @@
+[
+  {
+    "id": "tag-lunch",
+    "slug": "lunch",
+    "label": "Lunch",
+    "family": "meal"
+  },
+  {
+    "id": "tag-sandwich",
+    "slug": "sandwich",
+    "label": "Sandwich",
+    "family": "dish"
+  },
+  {
+    "id": "tag-vegetarian",
+    "slug": "vegetarian",
+    "label": "Vegetarian",
+    "family": "diet"
+  },
+  {
+    "id": "tag-italian",
+    "slug": "italian",
+    "label": "Italian",
+    "family": "cuisine"
+  },
+  {
+    "id": "tag-tomato",
+    "slug": "tomato",
+    "label": "Tomato",
+    "family": "ingredient"
+  },
+  {
+    "id": "tag-no-cook",
+    "slug": "no-cook",
+    "label": "No-cook",
+    "family": "technique"
+  },
+  {
+    "id": "tag-under-15-minutes",
+    "slug": "under-15-minutes",
+    "label": "Under 15 minutes",
+    "family": "time"
+  }
+]

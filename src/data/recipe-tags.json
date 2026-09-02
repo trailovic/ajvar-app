@@ -1,0 +1,26 @@
+[
+  {
+    "recipeId": "recipe-pesto-tomato-sandwich",
+    "tagId": "tag-lunch"
+  },
+  {
+    "recipeId": "recipe-pesto-tomato-sandwich",
+    "tagId": "tag-sandwich"
+  },
+  {
+    "recipeId": "recipe-pesto-tomato-sandwich",
+    "tagId": "tag-vegetarian"
+  },
+  {
+    "recipeId": "recipe-pesto-tomato-sandwich",
+    "tagId": "tag-italian"
+  },
+  {
+    "recipeId": "recipe-pesto-tomato-sandwich",
+    "tagId": "tag-tomato"
+  },
+  {
+    "recipeId": "recipe-pesto-tomato-sandwich",
+    "tagId": "tag-under-15-minutes"
+  }
+]
