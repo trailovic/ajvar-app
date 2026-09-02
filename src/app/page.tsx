@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { RecipeCard } from "@/components/recipes/recipe-card";
+import { DiscoverFeed } from "@/components/recipes/discover-feed";
 import { recipes } from "@/lib/recipes";
-import { getTagsForRecipe } from "@/lib/tags";
+import { recipeTags, tags } from "@/lib/tags";
 
 export default function HomePage() {
   const publicRecipes = recipes.filter(
@@ -45,31 +45,11 @@ export default function HomePage() {
           </p>
         </section>
 
-        <section aria-labelledby="latest-recipes">
-          <div className="mb-6 flex items-end justify-between">
-            <h2
-              id="latest-recipes"
-              className="font-display text-3xl text-[#241814]"
-            >
-              Latest recipes
-            </h2>
-
-            <span className="text-sm text-black/50">
-              {publicRecipes.length}{" "}
-              {publicRecipes.length === 1 ? "recipe" : "recipes"}
-            </span>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {publicRecipes.map((recipe) => (
-              <RecipeCard
-                key={recipe.id}
-                recipe={recipe}
-                tags={getTagsForRecipe(recipe.id)}
-              />
-            ))}
-          </div>
-        </section>
+        <DiscoverFeed
+          recipes={publicRecipes}
+          tags={tags}
+          recipeTags={recipeTags}
+        />
       </main>
     </>
   );
