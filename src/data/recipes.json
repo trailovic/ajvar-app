@@ -1,0 +1,60 @@
+[
+  {
+    "id": "recipe-pesto-tomato-sandwich",
+    "slug": "pesto-tomato-sandwich",
+    "visibility": "public",
+    "content": {
+      "schemaVersion": 1,
+      "title": "Pesto & Tomato Sandwich",
+      "description": "A quick toasted sandwich with pesto, ripe tomatoes and melted mozzarella.",
+      "servings": {
+        "amount": 2,
+        "label": "sandwiches"
+      },
+      "timing": {
+        "prepMinutes": 5,
+        "cookMinutes": 6
+      },
+      "ingredients": [
+        {
+          "id": "ingredient-bread",
+          "name": "Sourdough bread",
+          "amount": "4",
+          "unit": "slices"
+        },
+        {
+          "id": "ingredient-pesto",
+          "name": "Pesto",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "id": "ingredient-tomato",
+          "name": "Tomato",
+          "amount": "1",
+          "note": "thinly sliced"
+        },
+        {
+          "id": "ingredient-mozzarella",
+          "name": "Mozzarella",
+          "amount": "100",
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-assemble",
+          "text": "Spread pesto over the bread, then add the tomato and mozzarella."
+        },
+        {
+          "id": "step-toast",
+          "text": "Toast the sandwiches until golden and the mozzarella has melted.",
+          "timerSeconds": 360
+        }
+      ],
+      "notes": [
+        "Add fresh basil after cooking for a brighter flavour."
+      ]
+    }
+  }
+]
