@@ -1,4 +1,10 @@
 import Link from "next/link";
+import {
+  BookOpen,
+  Plus,
+  UserRound,
+} from "lucide-react";
+
 import { DiscoverFeed } from "@/components/recipes/discover-feed";
 import { recipes } from "@/lib/recipes";
 import { recipeTags, tags } from "@/lib/tags";
@@ -19,13 +25,58 @@ export default function HomePage() {
             ajvar
           </Link>
 
-          <nav aria-label="Main navigation">
+          <nav
+            className="flex items-center gap-2"
+            aria-label="Main navigation"
+          >
             <Link
               href="/"
-              className="rounded-full bg-[#241814] px-5 py-2.5 text-sm font-medium text-white"
+              className="mr-2 rounded-full bg-[#241814] px-5 py-2.5 text-sm font-medium text-white"
             >
               Discover
             </Link>
+
+            <button
+              type="button"
+              disabled
+              title="Add a recipe — coming soon"
+              aria-label="Add a recipe — coming soon"
+              className="flex size-10 cursor-not-allowed items-center justify-center rounded-full border border-black/10 bg-white text-[#241814] opacity-60"
+            >
+              <Plus
+                className="size-5"
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </button>
+
+            <button
+              type="button"
+              disabled
+              title="Cookbooks — coming soon"
+              aria-label="Cookbooks — coming soon"
+              className="flex size-10 cursor-not-allowed items-center justify-center rounded-full border border-black/10 bg-white text-[#241814] opacity-60"
+            >
+              <BookOpen
+                className="size-5"
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </button>
+
+            <button
+              type="button"
+              disabled
+              title="Profile — coming soon"
+              aria-label="Profile — coming soon"
+              className="flex size-10 cursor-not-allowed items-center justify-center rounded-full border border-black/10 bg-white text-[#241814] opacity-60"
+            >
+              <UserRound
+                className="size-5"
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </button>
           </nav>
         </div>
       </header>
