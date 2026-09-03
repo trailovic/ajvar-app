@@ -1,9 +1,6 @@
 import Link from "next/link";
-import {
-  BookOpen,
-  Plus,
-  UserRound,
-} from "lucide-react";
+import { BookOpen, UserRound } from "lucide-react";
+import { AddRecipeDialog } from "@/components/recipes/add-recipe-dialog";
 
 import { DiscoverFeed } from "@/components/recipes/discover-feed";
 import { recipes } from "@/lib/recipes";
@@ -36,19 +33,7 @@ export default function HomePage() {
               Discover
             </Link>
 
-            <button
-              type="button"
-              disabled
-              title="Add a recipe — coming soon"
-              aria-label="Add a recipe — coming soon"
-              className="flex size-10 cursor-not-allowed items-center justify-center rounded-full border border-black/10 bg-white text-[#241814] opacity-60"
-            >
-              <Plus
-                className="size-5"
-                strokeWidth={1.8}
-                aria-hidden="true"
-              />
-            </button>
+            <AddRecipeDialog />
 
             <button
               type="button"

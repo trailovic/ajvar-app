@@ -1,0 +1,67 @@
+// use prisma-next
+
+enum RecipeVisibility {
+  @@type("pg/text@1")
+
+  PUBLIC   = "public"
+  UNLISTED = "unlisted"
+  PRIVATE  = "private"
+}
+
+enum TagFamily {
+  @@type("pg/text@1")
+
+  MEAL       = "meal"
+  DISH       = "dish"
+  DIET       = "diet"
+  CUISINE    = "cuisine"
+  INGREDIENT = "ingredient"
+  TECHNIQUE  = "technique"
+  TIME       = "time"
+  CUSTOM     = "custom"
+}
+
+model Recipe {
+  id         Uuid             @id @default(uuid())
+  slug       String           @unique
+  visibility RecipeVisibility @default(PUBLIC)
+  content    Json
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @default(now())
+
+  tags RecipeTag[]
+
+  @@map("recipe")
+}
+
+model Tag {
+  id        Uuid      @id @default(uuid())
+  slug      String    @unique
+  label     String
+  family    TagFamily @default(CUSTOM)
+  createdAt DateTime  @default(now())
+
+  recipes RecipeTag[]
+
+  @@map("tag")
+}
+
+model RecipeTag {
+  recipeId Uuid
+  tagId    Uuid
+
+  recipe Recipe @relation(
+    fields: [recipeId],
+    references: [id],
+    onDelete: Cascade
+  )
+
+  tag Tag @relation(
+    fields: [tagId],
+    references: [id],
+    onDelete: Cascade
+  )
+
+  @@id([recipeId, tagId])
+  @@map("recipe_tag")
+}
