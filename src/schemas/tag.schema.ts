@@ -8,6 +8,7 @@ export const tagFamilySchema = z.enum([
   "ingredient",
   "technique",
   "time",
+  "custom",
 ]);
 
 export const tagSchema = z.object({
