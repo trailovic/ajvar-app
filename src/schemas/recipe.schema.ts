@@ -14,7 +14,7 @@ const recipeStepSchema = z.object({
   timerSeconds: z.number().int().positive().optional(),
 });
 
-const recipeContentSchema = z.object({
+export const recipeContentSchema = z.object({
   schemaVersion: z.literal(1),
 
   title: z.string().trim().min(1),

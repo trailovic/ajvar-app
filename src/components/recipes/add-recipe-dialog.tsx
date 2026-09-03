@@ -1,8 +1,13 @@
 "use client";
 
+import { useActionState } from "react";
 import { Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import {
+  createRecipe,
+  type CreateRecipeActionState,
+} from "@/app/actions/create-recipe";
 import {
   Dialog,
   DialogClose,
@@ -18,6 +23,14 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export function AddRecipeDialog() {
+  const initialState: CreateRecipeActionState = {
+    status: "idle",
+  };
+
+  const [state, formAction, pending] = useActionState(
+    createRecipe,
+    initialState,
+  );
   return (
     <Dialog>
       <DialogTrigger
@@ -44,7 +57,7 @@ export function AddRecipeDialog() {
           </DialogDescription>
         </DialogHeader>
 
-        <form className="space-y-6">
+        <form action={formAction} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="recipe-title">Title</Label>
 
@@ -178,22 +191,43 @@ Close the sandwich and serve.`}
             </p>
           </div>
 
+          {state.message && (
+            <div
+              role={state.status === "error" ? "alert" : "status"}
+              className={
+                state.status === "success"
+                  ? "rounded-xl bg-green-50 px-4 py-3 text-sm text-green-800"
+                  : "rounded-xl bg-red-50 px-4 py-3 text-sm text-red-800"
+              }
+            >
+              <p>{state.message}</p>
+
+              {state.errors && (
+                <ul className="mt-2 list-disc space-y-1 pl-5">
+                  {Object.values(state.errors)
+                    .flatMap((errors) => errors ?? [])
+                    .map((error) => (
+                      <li key={error}>{error}</li>
+                    ))}
+                </ul>
+              )}
+            </div>
+          )}
+
           <DialogFooter className="gap-2 sm:gap-0">
             <DialogClose
-              render={
-                <Button type="button" variant="outline" />
-              }
+              disabled={pending}
+              render={<Button type="button" variant="outline" />}
             >
               Cancel
             </DialogClose>
 
             <Button
               type="submit"
-              disabled
-              title="Database publishing is coming in the next checkpoint"
+              disabled={pending}
               className="bg-[#a6291f] text-white hover:bg-[#872219]"
             >
-              Publish recipe
+              {pending ? "Publishing..." : "Publish recipe"}
             </Button>
           </DialogFooter>
         </form>
